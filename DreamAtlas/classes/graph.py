@@ -291,7 +291,7 @@ class DreamAtlasGraph:
 
         # Set the graph size to embed (smaller is faster)
         scale_down = 100
-        size = np.array(self.map_size / scale_down, dtype=np.uint32)
+        size = np.array(self.map_size / scale_down, dtype=np.int64)
         connections = [[1, 0], [0, 1], [0, -1], [-1, 0]]
 
         # Make the H graph
