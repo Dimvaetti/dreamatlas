@@ -8,10 +8,17 @@ I've always loved fantasy, and a major part of fantasy for me is elaborate maps,
 
 # Install
 
-Clone this directory, and run `run.py` or directly install this with either `pip` or `pipx`
+Clone this repository, and run `run.py` or directly install this with either `pip` or `pipx`
 
 ```
 pipx install .
+# OR (after obtaining all the dependencies)
+pip install . --break-system-packages
 ```
+
+# Examples
+
+There's a usage example of DreamAtlas as a library available at `examples/script.py`
+
 
 For Windows users, there's builds available at https://tlaloca.itch.io/dreamatlas
