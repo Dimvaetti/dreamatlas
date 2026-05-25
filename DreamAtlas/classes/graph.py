@@ -291,9 +291,9 @@ class DreamAtlasGraph:
 
         # Set the graph size to embed (smaller is faster)
         scale_down = 100
-        size = np.array(self.map_size / scale_down, dtype=np.int64)
+        size = np.array(self.map_size / scale_down, dtype=np.int64) # uint32 -> int64 to avoid OverflowError
         connections = [[1, 0], [0, 1], [0, -1], [-1, 0]]
-
+    
         # Make the H graph
         h_dict = dict()
         for x in range(size[0]):

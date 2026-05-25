@@ -430,13 +430,12 @@ class DominionsMap:
                 location: str = None,
                 name: str = None,
                 art_style: int = 0):
-
         if location is None:
-            location = f"{ROOT_DIR}/maps//"
+            location = f"{ROOT_DIR}/maps/"
         if name is None:
             name = self.map_title
 
-        os.mkdir(location)
+        os.makedirs(location, exist_ok=True)
 
         for plane in self.planes:
             plane_str = '_plane%i' % plane

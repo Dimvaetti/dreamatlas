@@ -290,7 +290,7 @@ class MainInterface(ttk.Frame):
                 done_nodes = set()
                 for i, (x1, y1) in enumerate(virtual_coordinates):
                     for j in np.argwhere(virtual_graph[i, :] == 1):
-                        j = int(j)
+                        j = j.item()
 
                         neighbour_col = CONNECTION_COLOURS[0]
                         for connection in self.map.connection_list[plane]:
@@ -313,10 +313,10 @@ class MainInterface(ttk.Frame):
                     x = province.coordinates[0]
                     y = self.map.map_size[plane][1] - province.coordinates[1]
                     if has_terrain(province.terrain_int, 33554432):
-                        iid = self.viewing_canvas.create_image(x+40, y-40, anchor=ttk.CENTER, image=self.throne_image, state=HIDDEN, tags=(f'plane{plane}', 'thrones'))
+                        iid = self.viewing_canvas.create_image(x+40, y-40, anchor=CENTER, image=self.throne_image, state=HIDDEN, tags=(f'plane{plane}', 'thrones'))
                         self.icons[plane].append(iid)
                     elif has_terrain(province.terrain_int, 67108864):
-                        iid = self.viewing_canvas.create_image(x+30, y-30, anchor=ttk.CENTER, image=self.capital_image, state=HIDDEN, tags=(f'plane{plane}', 'capitals'))
+                        iid = self.viewing_canvas.create_image(x+30, y-30, anchor=CENTER, image=self.capital_image, state=HIDDEN, tags=(f'plane{plane}', 'capitals'))
                         self.icons[plane].append(iid)  # Store the icons for later use
 
                     image = None
@@ -324,7 +324,7 @@ class MainInterface(ttk.Frame):
                         if has_terrain(province.terrain_int, terrain):
                             image = self.terrain_images[terrain]
                     if image is not None:
-                        iid = self.viewing_canvas.create_image(x-30, y-40, anchor=ttk.CENTER, image=image, state=HIDDEN, tags=(f'plane{plane}', 'info', 'terrain'))
+                        iid = self.viewing_canvas.create_image(x-30, y-40, anchor=CENTER, image=image, state=HIDDEN, tags=(f'plane{plane}', 'info', 'terrain'))
                         self.icons[plane].append(iid)  # Store the icons for later use
 
     def update_editor_panel(self):
