@@ -564,6 +564,8 @@ class DreamAtlasGraph:
 
         k = len(self.coordinates)
         done_edges = set()
+        
+        # fills graph
         for i, j in self.get_all_connections():
             if (i, j) not in done_edges:  # If we haven't done this connection continue
                 done_edges.add((j, i))
@@ -609,6 +611,8 @@ class DreamAtlasGraph:
                         virtual_graph[j, k+3] = 1
                         virtual_coordinates[k+3] = [infinite_coordinates[1][0] - dart_x * self.map_size[0], infinite_coordinates[1][1] - dart_y * self.map_size[1]]
                     else:
+                        # crash for script.py happens around here.
+                        #TODO: fix crash? deprecate this?
                         virtual_graph[i, k] = 1  # Vertex to edge
                         virtual_graph[k, i] = 1
                         virtual_coordinates[k] = infinite_coordinates[0]
