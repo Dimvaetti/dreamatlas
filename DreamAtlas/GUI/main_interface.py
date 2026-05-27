@@ -422,7 +422,7 @@ class MainInterface(ttk.Frame):
 
 
 def run_interface():
-    app = ttk.Window(title="DreamAtlas", themename='minty', iconphoto=ART_ICON)
+    app = ttk.Window(title="DreamAtlas", themename='dreamfantasy', iconphoto=ART_ICON)
     app.place_window_center()
     app.rowconfigure(0, weight=1)
     app.columnconfigure(0, weight=1)
