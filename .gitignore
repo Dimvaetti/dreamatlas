@@ -4,4 +4,6 @@ __pycache__/
 *.pyc
 *.egg
 *.egg-info/
+build/
 maps/
+TODO.txt
